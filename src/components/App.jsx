@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import Basket from './Basket';
 import Header from './Header';
 import GoodsList from './GoodsList';
@@ -8,6 +7,7 @@ import Snack from './Snack';
 
 import { goods } from '../data/goods';
 import { Container } from '@mui/material';
+import Footer from './Footer';
 
 const App = () => {
     const [order, setOrder] = useState([]);
@@ -41,26 +41,26 @@ const App = () => {
             quantity = order[indexInOrder].quantity + 1;
 
             setOrder(order.map((item) => {
-                    if (item.id !== goodsItem.id) return item;
+                if (item.id !== goodsItem.id) return item;
 
-                    return {
-                        id: item.id,
-                        name: item.name,
-                        price: item.price,
-                        quantity,
-                    };
-                }),
+                return {
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    quantity,
+                };
+            }),
             );
         } else {
             setOrder([
-                    ...order,
-                    {
-                        id: goodsItem.id,
-                        name: goodsItem.name,
-                        price: goodsItem.price,
-                        quantity,
-                    },
-                ],
+                ...order,
+                {
+                    id: goodsItem.id,
+                    name: goodsItem.name,
+                    price: goodsItem.price,
+                    quantity,
+                },
+            ],
             );
         }
 
@@ -73,34 +73,37 @@ const App = () => {
 
     return (
         <>
-        <Header
-            handleCart={() => setCartOpen(true)}
-            orderLen={order.length}
-        />
-        <Container
-            sx={{
-                mt: '1rem'
-            }}
-        >
-            <Search
-                value={search}
-                onChange={handleChange}
+            <Header
+                handleCart={() => setCartOpen(true)}
+                orderLen={order.length}
             />
-            <GoodsList
-                goods={products}
-                setOrder={addToOrder}
+            <Container
+                sx={{
+                    mt: '1rem'
+                }}
+            >
+                <Search
+                    value={search}
+                    onChange={handleChange}
+                />
+                <GoodsList
+                    goods={products}
+                    setOrder={addToOrder}
+                />
+            </Container>
+            <Footer />
+            
+            <Basket
+                order={order}
+                removeFromOrder={removeFromOrder}
+                cartOpen={isCartOpen}
+                closeCart={() => setCartOpen(false)}
             />
-        </Container>
-        <Basket
-            order={order}
-            removeFromOrder={removeFromOrder}
-            cartOpen={isCartOpen}
-            closeCart={() => setCartOpen(false)}
-        />
-        <Snack
-            isOpen={isSnackOpen}
-            handleClose={() => setSnackOpen(false)}
-        />
+
+            <Snack
+                isOpen={isSnackOpen}
+                handleClose={() => setSnackOpen(false)}
+            />
         </>
     );
 }

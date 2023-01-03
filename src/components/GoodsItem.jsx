@@ -6,6 +6,7 @@ const GoodsItem = (props) => {
 
     return (
         <Grid item xs={12} md={4}>
+
             <Card
                 sx={{
                     height: '100%',
@@ -18,6 +19,7 @@ const GoodsItem = (props) => {
                     title={name}
                     sx={{ height: 140 }}
                 />
+
                 <CardContent>
                     <Typography
                         variant="h6"
@@ -27,6 +29,7 @@ const GoodsItem = (props) => {
                     </Typography>
                     <Typography variant="body1">Price: {price} $.</Typography>
                 </CardContent>
+
                 <CardActions>
                     <Button
                         variant="text"

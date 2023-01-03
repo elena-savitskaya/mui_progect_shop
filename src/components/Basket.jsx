@@ -11,12 +11,14 @@ const Basket = (props) => {
     } = props;
 
     return (
+
         <Drawer
             anchor="right"
             open={cartOpen}
             onClose={closeCart}
         >
-            <List sx={{width: '400px'}}>
+
+            <List sx={{ width: '400px' }}>
                 <ListItem>
                     <ListItemIcon>
                         <ShoppingBasket />
@@ -29,19 +31,19 @@ const Basket = (props) => {
                     <ListItem>Cart is empty!</ListItem>
                 ) : (
                     <>
-                    {order.map((item) => (
-                        <BasketItem key={item.name} removeFromOrder={removeFromOrder} {...item} />
-                    ))}
-                    <Divider />
-                    <ListItem>
-                        <Typography sx={{fontWeight: 700}}>
-                            Total price:{' '}
-                            {order.reduce((acc, item) => {
-                            return acc + item.price * item.quantity;
-                            }, 0)}{' '}
-                            $.
-                        </Typography>
-                    </ListItem>
+                        {order.map((item) => (
+                            <BasketItem key={item.name} removeFromOrder={removeFromOrder} {...item} />
+                        ))}
+                        <Divider />
+                        <ListItem>
+                            <Typography sx={{ fontWeight: 700 }}>
+                                Total price:{' '}
+                                {order.reduce((acc, item) => {
+                                    return acc + item.price * item.quantity;
+                                }, 0)}{' '}
+                                $.
+                            </Typography>
+                        </ListItem>
                     </>
                 )}
 

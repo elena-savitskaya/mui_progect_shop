@@ -1,6 +1,6 @@
 import { Alert, Snackbar } from "@mui/material"
 
-function Snack({isOpen, handleClose = Function.prototype}) {
+function Snack({ isOpen, handleClose = Function.prototype }) {
     return (
         <Snackbar
             open={isOpen}

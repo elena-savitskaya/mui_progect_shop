@@ -3,16 +3,16 @@ import { ShoppingBasket } from '@mui/icons-material'
 import { AppBar, IconButton, Toolbar, Typography, Badge } from '@mui/material'
 import React from 'react'
 
-function Header({handleCart, orderLen}) {
+function Header({ handleCart, orderLen }) {
     return (
         <AppBar position="static">
             <Toolbar>
                 <Typography
                     variant="h6"
                     component="span"
-                    sx={{flexGrow: 1}}
+                    sx={{ flexGrow: 1 }}
                 >
-                    MUI Shop
+                    Material UI Workshop
                 </Typography>
                 <IconButton
                     color="inherit"

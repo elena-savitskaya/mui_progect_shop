@@ -8,7 +8,7 @@ const Search = (props) => {
             mb: '1.5rem'
         }}
         label="search"
-        variant="standard" 
+        variant="standard"
         fullWidth
         type='search'
         value={value}

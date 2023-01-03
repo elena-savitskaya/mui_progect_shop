@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 
 function Footer() {
     return (<footer>
-        <Box px={{ xs: 3, sm: 10 }} py={{ xs: 5, sm: 10 }} bgcolor='#778899' color='white'>
+        <Box mt={5} px={{ xs: 3, sm: 10 }} py={{ xs: 5, sm: 10 }} bgcolor='#778899' color='white'>
             <Container maxWidth='lg'>
                 <Grid container spacing={5}>
                     <Grid item xs={12} sm={4}>
